@@ -4,14 +4,17 @@ import { convertIndexIntoDiceSides, paths } from './helpers';
 import { convertIndexIntoDiceSides } from './helpers';
 
 // DOM elements
-const form = document.querySelector('.dice__input--container');
-const btnRoll = document.querySelector('.btn');
-const results = document.querySelector('.results');
+const form = document.querySelector('.controlPanel__form');
+const btnRoll = document.querySelector('.form__btn');
+const results = document.querySelector('.container__results');
+const resultsMsg = document.querySelector('.container__results--span');
 
 // paths to dice icons from the parcel build
 const dicePaths = paths();
 
 class App {
+  #firstRoll = true;
+
   constructor() {
     // attach event listeners
     form.addEventListener('submit', this._formHandler.bind(this));
@@ -28,7 +31,9 @@ class App {
     //checks if clicked element was roll! button
     if (e.target === btnRoll) {
       // converts html collection of all elements with dice_amount class from form into an array
-      const inputs = Array.from(form.getElementsByClassName('dice__amount'));
+      const inputs = Array.from(
+        form.getElementsByClassName('inputContainer__input')
+      );
       const diceValues = [];
 
       // pushes dice values in order (d4, d6 ...) into diceValues
@@ -45,7 +50,7 @@ class App {
   // handles plus and minus buttons
   _plusMinusHandler(e) {
     const btn = e.target;
-    const diceInput = btn.closest('.dice__input--el').children[3];
+    const diceInput = btn.closest('.inputContainer').children[3];
 
     // restricts input values to min and max
     diceInput.addEventListener('change', function () {
@@ -54,7 +59,7 @@ class App {
     });
 
     // if button is minus then subtract 1 from input
-    if ([...btn.classList].includes('roller__btn--minus')) {
+    if ([...btn.classList].includes('icon__btn--minus')) {
       console.log('minus');
       if (diceInput.value > MIN_DICE_INPUT) {
         diceInput.value--;
@@ -62,7 +67,7 @@ class App {
     }
 
     // if button is plus then add 1 to input
-    if ([...btn.classList].includes('roller__btn--plus')) {
+    if ([...btn.classList].includes('icon__btn--plus')) {
       console.log('plus');
       if (diceInput.value < MAX_DICE_INPUT) {
         diceInput.value++;
@@ -110,20 +115,26 @@ class App {
     await this._sleep(SLEEP_TIME_MS);
     this._renderSpin();
 
+    // hides 'your rolls will show up here' message
+    if (this.#firstRoll) {
+      resultsMsg.classList.add('hidden');
+      this.#firstRoll = false;
+    }
+
     // html element which displays each dice and roll of the rolls array
-    let html = `<div class="d-inline-flex container shadow-lg p-3 mb-5 bg-body rounded roll__container">`;
+    let html = `<div class="container__box results__rollContainer">`;
     rolls.forEach(function (roll) {
-      html += `<div class="roll__dice "><img class="icon icon--dice" src="${
+      html += `<div class="results__rollContainer--roll"><img class="icon icon--dice" src="${
         dicePaths[`${roll.at(0)}`]
       }"/>
-      <span>${roll.at(1)}</span></div>
+      <span">${roll.at(1)}</span></div>
       `;
     });
 
     const initialValue = 0;
     const sum = rolls.reduce((sum, el) => sum + el.at(1), initialValue);
 
-    html += `<div class="roll__sum"><span>SUM: ${sum}</span></div>`;
+    html += `<div class="results__rollContainer--sum"><span>SUM: ${sum}</span></div>`;
     html += `</div>`;
 
     results.insertAdjacentHTML('afterbegin', html);
