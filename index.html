@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script type="module" defer src="src/index.js"></script>
+    <title>Lunar Roller</title>
+  </head>
+
+  <body>
+    <div class="container font-monospace">
+      <header
+        class="header shadow-lg p-3 mb-5 bg-body rounded fw-semibold"
+        style="--bs-bg-opacity: 0.7"
+      >
+        ROLL SOME DICE
+      </header>
+    </div>
+    <div class="container text-center font-monospace fw-semibold">
+      <div class="row justify-content-md-center container__height">
+        <div
+          class="col-md-auto shadow-lg p-3 mb-5 bg-body rounded"
+          style="--bs-bg-opacity: 0.7"
+        >
+          <form class="dice__input--container">
+            <div class="d4 dice__input--el justify-content-md-center">
+              <img class="icon icon--dice" src="/img/dice-d4.png" />
+              <span class="dice__name">D4</span>
+              <button class="icon roller__btn roller__btn--minus"></button>
+              <input type="number" class="dice__amount num--d4" value="0" />
+              <button class="icon roller__btn roller__btn--plus"></button>
+            </div>
+            <div class="d6 dice__input--el justify-content-md-center">
+              <img class="icon icon--dice" src="/img/dice-d6.png" />
+              <span class="dice__name">D6</span>
+              <button class="icon roller__btn roller__btn--minus"></button>
+              <input type="number" class="dice__amount num--d6" value="0" />
+              <button class="icon roller__btn roller__btn--plus"></button>
+            </div>
+            <div class="d8 dice__input--el justify-content-md-center">
+              <img class="icon icon--dice" src="/img/dice-d8.png" />
+              <span class="dice__name">D8</span>
+              <button class="icon roller__btn roller__btn--minus"></button>
+              <input type="number" class="dice__amount num--d8" value="0" />
+              <button class="icon roller__btn roller__btn--plus"></button>
+            </div>
+            <div class="d10 dice__input--el justify-content-md-center">
+              <img class="icon icon--dice" src="/img/dice-d10.png" />
+              <span class="dice__name">D10</span>
+              <button class="icon roller__btn roller__btn--minus"></button>
+              <input type="number" class="dice__amount num--d10" value="0" />
+              <button class="icon roller__btn roller__btn--plus"></button>
+            </div>
+            <div class="d12 dice__input--el justify-content-md-center">
+              <img class="icon icon--dice" src="/img/dice-d12.png" />
+              <span class="dice__name">D12</span>
+              <button class="icon roller__btn roller__btn--minus"></button>
+              <input type="number" class="dice__amount num--d12" value="0" />
+              <button class="icon roller__btn roller__btn--plus"></button>
+            </div>
+            <div class="d20 dice__input--el justify-content-md-center">
+              <img class="icon icon--dice" src="/img/dice-d20.png" />
+              <span class="dice__name">D20</span>
+              <button class="icon roller__btn roller__btn--minus"></button>
+              <input type="number" class="dice__amount num--d20" value="0" />
+              <button class="icon roller__btn roller__btn--plus"></button>
+            </div>
+            <button type="submit" class="btn btn-dark-pink btn-lg">
+              ROLL!
+            </button>
+          </form>
+        </div>
+        <div class="col-md-auto"></div>
+        <div
+          class="results col shadow-lg p-3 mb-5 bg-body rounded overflow-auto container__height"
+          style="--bs-bg-opacity: 0.7"
+        >
+          Your rolls will show up here
+        </div>
+      </div>
+      <div class="footer">
+        <div>
+          Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+        </div>
+        <div>
+          <footer>&copy; Copyright 2022 Adrian Żegnałek</footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
