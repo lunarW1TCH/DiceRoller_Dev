@@ -1,0 +1,12 @@
+lower icon btns
+
+fix wrap
+
+add css toggle button
+maybe save to local storage last used theme
+
+fix dropping height
+
+fix dark color scheme
+
+or maybe instead of adding on top, replace?

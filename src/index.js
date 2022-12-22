@@ -8,21 +8,37 @@ const form = document.querySelector('.controlPanel__form');
 const btnRoll = document.querySelector('.form__btn');
 const results = document.querySelector('.container__results');
 const resultsMsg = document.querySelector('.container__results--span');
-
+const colorModeBtn = document.querySelector('.icon__btn--moon');
+const darkStylesheet = document.getElementById('dark__stylesheet');
 // paths to dice icons from the parcel build
 const dicePaths = paths();
 
 class App {
   #firstRoll = true;
+  #darkMode = false;
 
   constructor() {
     // attach event listeners
     form.addEventListener('submit', this._formHandler.bind(this));
     form.addEventListener('click', this._plusMinusHandler.bind(this));
     btnRoll.addEventListener('click', this._btnRollHandler.bind(this));
+    colorModeBtn.addEventListener('click', this._colorModeHandler.bind(this));
   }
 
-  // event handlers
+  // events
+
+  _colorModeHandler(e) {
+    // enables and disables dark mode
+
+    if (this.#darkMode) {
+      darkStylesheet.disabled = true;
+      this.#darkMode = false;
+    } else {
+      darkStylesheet.disabled = false;
+      this.#darkMode = true;
+    }
+  }
+
   _formHandler(e) {
     e.preventDefault();
   }
@@ -122,9 +138,9 @@ class App {
     }
 
     // html element which displays each dice and roll of the rolls array
-    let html = `<div class="container__box results__rollContainer">`;
+    let html = `<div class="container__box container__box--dark results__rollContainer">`;
     rolls.forEach(function (roll) {
-      html += `<div class="results__rollContainer--roll"><img class="icon icon--dice" src="${
+      html += `<div class="results__rollContainer--roll"><img class="icon icon--dark icon--dice" src="${
         dicePaths[`${roll.at(0)}`]
       }"/>
       <span">${roll.at(1)}</span></div>
@@ -141,8 +157,5 @@ class App {
     console.log(html);
   }
 }
-
-//TODO: add reset button to zero dice amounts
-//TODO: implement dark mode
 
 const app = new App();

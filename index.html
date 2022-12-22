@@ -4,66 +4,144 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
     <script type="module" defer src="src/index.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link id="dark__stylesheet" rel="stylesheet" href="css/dark.css" disabled />
     <title>Lunar Roller</title>
   </head>
 
-  <body class="body">
+  <body class="body body--dark">
+    <div class="container__colorMode container__box container__box--dark">
+      <button
+        class="icon icon__btn icon__btn--dark icon__btn--moon icon__btn--sun"
+      ></button>
+    </div>
     <div class="container__app">
-      <div class="container__header container__box">
-        <header class="header">ROLL SOME DICE</header>
+      <div class="container__header container__box container__box--dark">
+        <header class="header header--dark">ROLL SOME DICE</header>
       </div>
       <div>
         <div class="container__wrapper--roller">
-          <div class="container__controlPanel container__box">
+          <div
+            class="container__controlPanel container__box container__box--dark"
+          >
             <form class="controlPanel__form">
               <div class="inputContainer">
-                <img class="icon icon--dice" src="/img/dice-d4.png" />
+                <img
+                  class="icon icon--dark icon--dice"
+                  src="/img/dice-d4.png"
+                />
                 <span class="inputContainer__span">D4</span>
-                <button class="icon icon__btn icon__btn--minus"></button>
-                <input class="inputContainer__input" type="number" value="0" />
-                <button class="icon icon__btn icon__btn--plus"></button>
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--minus"
+                ></button>
+                <input
+                  class="inputContainer__input inputContainer__input--dark"
+                  type="number"
+                  value="0"
+                />
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--plus"
+                ></button>
               </div>
               <div class="inputContainer">
-                <img class="icon icon--dice" src="/img/dice-d6.png" />
+                <img
+                  class="icon icon--dark icon--dice"
+                  src="/img/dice-d6.png"
+                />
                 <span class="inputContainer__span">D6</span>
-                <button class="icon icon__btn icon__btn--minus"></button>
-                <input class="inputContainer__input" type="number" value="0" />
-                <button class="icon icon__btn icon__btn--plus"></button>
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--minus"
+                ></button>
+                <input
+                  class="inputContainer__input inputContainer__input--dark"
+                  type="number"
+                  value="0"
+                />
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--plus"
+                ></button>
               </div>
               <div class="inputContainer">
-                <img class="icon icon--dice" src="/img/dice-d8.png" />
+                <img
+                  class="icon icon--dark icon--dice"
+                  src="/img/dice-d8.png"
+                />
                 <span class="inputContainer__span">D8</span>
-                <button class="icon icon__btn icon__btn--minus"></button>
-                <input class="inputContainer__input" type="number" value="0" />
-                <button class="icon icon__btn icon__btn--plus"></button>
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--minus"
+                ></button>
+                <input
+                  class="inputContainer__input inputContainer__input--dark"
+                  type="number"
+                  value="0"
+                />
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--plus"
+                ></button>
               </div>
               <div class="inputContainer">
-                <img class="icon icon--dice" src="/img/dice-d10.png" />
+                <img
+                  class="icon icon--dark icon--dice"
+                  src="/img/dice-d10.png"
+                />
                 <span class="inputContainer__span">D10</span>
-                <button class="icon icon__btn icon__btn--minus"></button>
-                <input class="inputContainer__input" type="number" value="0" />
-                <button class="icon icon__btn icon__btn--plus"></button>
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--minus"
+                ></button>
+                <input
+                  class="inputContainer__input inputContainer__input--dark"
+                  type="number"
+                  value="0"
+                />
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--plus"
+                ></button>
               </div>
               <div class="inputContainer">
-                <img class="icon icon--dice" src="/img/dice-d12.png" />
+                <img
+                  class="icon icon--dark icon--dice"
+                  src="/img/dice-d12.png"
+                />
                 <span class="inputContainer__span">D12</span>
-                <button class="icon icon__btn icon__btn--minus"></button>
-                <input class="inputContainer__input" type="number" value="0" />
-                <button class="icon icon__btn icon__btn--plus"></button>
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--minus"
+                ></button>
+                <input
+                  class="inputContainer__input inputContainer__input--dark"
+                  type="number"
+                  value="0"
+                />
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--plus"
+                ></button>
               </div>
               <div class="inputContainer">
-                <img class="icon icon--dice" src="/img/dice-d20.png" />
+                <img
+                  class="icon icon--dark icon--dice"
+                  src="/img/dice-d20.png"
+                />
                 <span class="inputContainer__span">D20</span>
-                <button class="icon icon__btn icon__btn--minus"></button>
-                <input class="inputContainer__input" type="number" value="0" />
-                <button class="icon icon__btn icon__btn--plus"></button>
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--minus"
+                ></button>
+                <input
+                  class="inputContainer__input inputContainer__input--dark"
+                  type="number"
+                  value="0"
+                />
+                <button
+                  class="icon icon__btn icon__btn--dark icon__btn--plus"
+                ></button>
               </div>
-              <button class="form__btn" type="submit">ROLL!</button>
+              <button class="form__btn form__btn--dark" type="submit">
+                ROLL!
+              </button>
             </form>
           </div>
-          <div class="container__results container__box scroll">
+          <div
+            class="container__results container__box container__box--dark scroll scroll--dark"
+          >
             <span class="container__results--span"
               >Your rolls will show up here</span
             >

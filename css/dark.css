@@ -1,0 +1,95 @@
+:root {
+  --color-primary--light: #d88aff;
+  --color-primary--lighter: #e6b3ff;
+  --color-primary--dark: #d70090;
+  --color-primary--darker: #b8007a;
+
+  --color-secondary-dark: #2d3439;
+  --color-secondary-dark-transparent: #2d3439cd;
+  --color-secondary-light: #aaa;
+
+  --color-tetriary-dark: #797e83;
+  --color-tetriary-light: #ffffffae;
+
+  --color-quaternary-dark: #42484d6c;
+  --color-quaternary-light: #d6dee0aa;
+
+  --color-quinary-dark: #2c2c2c;
+}
+
+.body--dark {
+  background-image: url(/img/dark.jpg);
+  color: white;
+}
+
+.container__box--dark {
+  background: var(--color-secondary-dark-transparent);
+  box-shadow: 0.5rem 0.5rem 1rem var(--color-quaternary-light);
+}
+
+.inputContainer__input--dark {
+  background: var(--color-quinary-dark);
+  color: white;
+}
+
+.form__btn--dark {
+  background-color: var(--color-primary--light);
+  color: black;
+}
+
+.form__btn--dark:hover {
+  background-color: var(--color-primary--lighter);
+}
+
+.inputContainer__input--dark:focus {
+  border: 2px solid var(--color-primary--light);
+  outline: var(--color-primary--light);
+}
+
+.inputContainer__input--dark:hover {
+  border: 2px solid var(--color-primary--lighter);
+  outline: var(--color-primary--lighter);
+}
+
+.header--dark {
+  color: var(--color-primary--light);
+  text-shadow: 2px 2px var(--color-tetriary-dark);
+}
+
+.icon__btn--dark {
+  filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1193%)
+    hue-rotate(218deg) brightness(97%) contrast(103%)
+    drop-shadow(2px 2px 2px var(--color-tetriary-dark));
+}
+
+.icon__btn--dark:hover {
+  filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1193%)
+    hue-rotate(218deg) brightness(97%) contrast(103%);
+}
+
+.icon__btn--sun {
+  background: url('/img/sun.png') center;
+  border: none;
+  width: 32px;
+  height: 32px;
+  background-size: 32px;
+}
+
+.icon--dark {
+  filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1193%)
+    hue-rotate(218deg) brightness(97%) contrast(103%);
+}
+
+.scroll--dark::-webkit-scrollbar-track {
+  background-color: var(--color-quinary-dark);
+  border-radius: 100px;
+}
+
+.scroll--dark::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary--light);
+  border-radius: 100px;
+}
+
+.scroll--dark::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary--lighter);
+}
