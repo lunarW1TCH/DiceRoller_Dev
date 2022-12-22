@@ -5,11 +5,14 @@ import { convertIndexIntoDiceSides } from './helpers';
 
 // DOM elements
 const form = document.querySelector('.controlPanel__form');
-const btnRoll = document.querySelector('.form__btn');
+const btnRoll = document.getElementById('btn__roll');
 const results = document.querySelector('.container__results');
 const resultsMsg = document.querySelector('.container__results--span');
-const colorModeBtn = document.querySelector('.icon__btn--moon');
+const colorThemeBtn = document.querySelector('.icon__btn--moon');
 const darkStylesheet = document.getElementById('dark__stylesheet');
+const plusBtns = document.getElementsByClassName('icon__btn--plus');
+const minusBtns = document.getElementsByClassName('icon__btn--minus');
+
 // paths to dice icons from the parcel build
 const dicePaths = paths();
 
@@ -20,16 +23,24 @@ class App {
   constructor() {
     // attach event listeners
     form.addEventListener('submit', this._formHandler.bind(this));
-    form.addEventListener('click', this._plusMinusHandler.bind(this));
     btnRoll.addEventListener('click', this._btnRollHandler.bind(this));
-    colorModeBtn.addEventListener('click', this._colorModeHandler.bind(this));
+    colorThemeBtn.addEventListener(
+      'click',
+      this._siteColorThemeHandler.bind(this)
+    );
+
+    // adds event listeners for each of the buttons
+    [...plusBtns].forEach(el =>
+      el.addEventListener('click', e => this._plusOrMinusHandler(e, 'plus'))
+    );
+    [...minusBtns].forEach(el =>
+      el.addEventListener('click', e => this._plusOrMinusHandler(e, 'minus'))
+    );
   }
 
   // events
 
-  _colorModeHandler(e) {
-    // enables and disables dark mode
-
+  _siteColorThemeHandler(e) {
     if (this.#darkMode) {
       darkStylesheet.disabled = true;
       this.#darkMode = false;
@@ -44,54 +55,31 @@ class App {
   }
 
   _btnRollHandler(e) {
-    //checks if clicked element was roll! button
-    if (e.target === btnRoll) {
-      // converts html collection of all elements with dice_amount class from form into an array
-      const inputs = Array.from(
-        form.getElementsByClassName('inputContainer__input')
-      );
-      const diceValues = [];
+    const inputs = [...form.getElementsByClassName('inputContainer__input')];
+    const diceValues = [];
 
-      // pushes dice values in order (d4, d6 ...) into diceValues
-      inputs.forEach(el => diceValues.push(+el.value));
+    // pushes dice values in order (d4, d6 ...) into diceValues
+    inputs.forEach(el => diceValues.push(+el.value));
+    const initialValue = 0;
+    const sum = diceValues.reduce((sum, el) => sum + el, initialValue);
 
-      const initialValue = 0;
-      const sum = diceValues.reduce((sum, el) => sum + el, initialValue);
-      if (sum !== 0) {
-        this._renderRoll(diceValues);
-      }
+    // if all of the inputs are set to 0, rolling does not happen
+    if (sum !== 0) {
+      this._renderRoll(diceValues);
     }
   }
 
-  // handles plus and minus buttons
-  _plusMinusHandler(e) {
-    const btn = e.target;
-    const diceInput = btn.closest('.inputContainer').children[3];
+  _plusOrMinusHandler(e, btn) {
+    const id = e.target.id;
+    const dice = id.substring(0, 3);
 
-    // restricts input values to min and max
-    diceInput.addEventListener('change', function () {
-      if (this.value < MIN_DICE_INPUT) this.value = MIN_DICE_INPUT;
-      if (this.value > MAX_DICE_INPUT) this.value = MAX_DICE_INPUT;
-    });
+    // gets the input which is the sibling of a clicked button
+    const input = document.getElementById(`${dice}_input`);
 
-    // if button is minus then subtract 1 from input
-    if ([...btn.classList].includes('icon__btn--minus')) {
-      console.log('minus');
-      if (diceInput.value > MIN_DICE_INPUT) {
-        diceInput.value--;
-      }
-    }
-
-    // if button is plus then add 1 to input
-    if ([...btn.classList].includes('icon__btn--plus')) {
-      console.log('plus');
-      if (diceInput.value < MAX_DICE_INPUT) {
-        diceInput.value++;
-      }
-    }
+    if (btn === 'plus') input.value++;
+    if (btn === 'minus') input.value--;
   }
 
-  // stops execution of code
   _sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
@@ -121,10 +109,50 @@ class App {
     });
   }
 
+  _getRollHtml(rolls) {
+    const initialValue = 0;
+    const sum = rolls.reduce((sum, el) => sum + el.at(1), initialValue);
+
+    const div = document.createElement('div');
+    div.classList.add(
+      'container__box',
+      'container__box--dark',
+      'results__rollContainer'
+    );
+
+    rolls.forEach(function (roll) {
+      const divRoll = document.createElement('div');
+      divRoll.classList.add('results__rollContainer--roll');
+
+      const iconDice = document.createElement('img');
+      iconDice.classList.add('icon', 'icon--dark', 'icon--dice');
+      const src = dicePaths[roll.at(0)];
+      iconDice.setAttribute('src', src);
+      divRoll.appendChild(iconDice);
+
+      const spanResult = document.createElement('span');
+      const rollResult = document.createTextNode(roll.at(1));
+      spanResult.appendChild(rollResult);
+      divRoll.appendChild(spanResult);
+
+      div.appendChild(divRoll);
+    });
+
+    const divSpan = document.createElement('div');
+    divSpan.classList.add('results__rollContainer--sum');
+
+    const spanSum = document.createElement('span');
+    const sumText = document.createTextNode(`SUM: ${sum}`);
+    spanSum.appendChild(sumText);
+    divSpan.appendChild(spanSum);
+    div.appendChild(divSpan);
+
+    return div;
+  }
+
   async _renderRoll(diceValues) {
     // [[diceSides, rollValue], [diceSides, rollValue], ...]
     const rolls = this._getRolls(diceValues);
-    console.log(rolls);
 
     // after sleep time, spin animation stops and the results show up
     this._renderSpin();
@@ -137,24 +165,8 @@ class App {
       this.#firstRoll = false;
     }
 
-    // html element which displays each dice and roll of the rolls array
-    let html = `<div class="container__box container__box--dark results__rollContainer">`;
-    rolls.forEach(function (roll) {
-      html += `<div class="results__rollContainer--roll"><img class="icon icon--dark icon--dice" src="${
-        dicePaths[`${roll.at(0)}`]
-      }"/>
-      <span">${roll.at(1)}</span></div>
-      `;
-    });
-
-    const initialValue = 0;
-    const sum = rolls.reduce((sum, el) => sum + el.at(1), initialValue);
-
-    html += `<div class="results__rollContainer--sum"><span>SUM: ${sum}</span></div>`;
-    html += `</div>`;
-
-    results.insertAdjacentHTML('afterbegin', html);
-    console.log(html);
+    const html = this._getRollHtml(rolls);
+    results.insertAdjacentElement('afterbegin', html);
   }
 }
 

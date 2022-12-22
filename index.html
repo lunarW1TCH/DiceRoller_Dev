@@ -20,140 +20,142 @@
       <div class="container__header container__box container__box--dark">
         <header class="header header--dark">ROLL SOME DICE</header>
       </div>
-      <div>
-        <div class="container__wrapper--roller">
-          <div
-            class="container__controlPanel container__box container__box--dark"
-          >
-            <form class="controlPanel__form">
-              <div class="inputContainer">
-                <img
-                  class="icon icon--dark icon--dice"
-                  src="/img/dice-d4.png"
-                />
-                <span class="inputContainer__span">D4</span>
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--minus"
-                ></button>
-                <input
-                  class="inputContainer__input inputContainer__input--dark"
-                  type="number"
-                  value="0"
-                />
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--plus"
-                ></button>
-              </div>
-              <div class="inputContainer">
-                <img
-                  class="icon icon--dark icon--dice"
-                  src="/img/dice-d6.png"
-                />
-                <span class="inputContainer__span">D6</span>
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--minus"
-                ></button>
-                <input
-                  class="inputContainer__input inputContainer__input--dark"
-                  type="number"
-                  value="0"
-                />
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--plus"
-                ></button>
-              </div>
-              <div class="inputContainer">
-                <img
-                  class="icon icon--dark icon--dice"
-                  src="/img/dice-d8.png"
-                />
-                <span class="inputContainer__span">D8</span>
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--minus"
-                ></button>
-                <input
-                  class="inputContainer__input inputContainer__input--dark"
-                  type="number"
-                  value="0"
-                />
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--plus"
-                ></button>
-              </div>
-              <div class="inputContainer">
-                <img
-                  class="icon icon--dark icon--dice"
-                  src="/img/dice-d10.png"
-                />
-                <span class="inputContainer__span">D10</span>
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--minus"
-                ></button>
-                <input
-                  class="inputContainer__input inputContainer__input--dark"
-                  type="number"
-                  value="0"
-                />
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--plus"
-                ></button>
-              </div>
-              <div class="inputContainer">
-                <img
-                  class="icon icon--dark icon--dice"
-                  src="/img/dice-d12.png"
-                />
-                <span class="inputContainer__span">D12</span>
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--minus"
-                ></button>
-                <input
-                  class="inputContainer__input inputContainer__input--dark"
-                  type="number"
-                  value="0"
-                />
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--plus"
-                ></button>
-              </div>
-              <div class="inputContainer">
-                <img
-                  class="icon icon--dark icon--dice"
-                  src="/img/dice-d20.png"
-                />
-                <span class="inputContainer__span">D20</span>
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--minus"
-                ></button>
-                <input
-                  class="inputContainer__input inputContainer__input--dark"
-                  type="number"
-                  value="0"
-                />
-                <button
-                  class="icon icon__btn icon__btn--dark icon__btn--plus"
-                ></button>
-              </div>
-              <button class="form__btn form__btn--dark" type="submit">
-                ROLL!
-              </button>
-            </form>
-          </div>
-          <div
-            class="container__results container__box container__box--dark scroll scroll--dark"
-          >
-            <span class="container__results--span"
-              >Your rolls will show up here</span
+      <div class="container__wrapper--roller">
+        <div
+          class="container__controlPanel container__box container__box--dark"
+        >
+          <form class="controlPanel__form">
+            <div class="inputContainer">
+              <img class="icon icon--dark icon--dice" src="/img/dice-d4.png" />
+              <span class="inputContainer__span">D4</span>
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--minus"
+                id="d04_minus"
+              ></button>
+              <input
+                class="inputContainer__input inputContainer__input--dark"
+                type="number"
+                value="0"
+                id="d04_input"
+              />
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--plus"
+                id="d04_plus"
+              ></button>
+            </div>
+            <div class="inputContainer">
+              <img class="icon icon--dark icon--dice" src="/img/dice-d6.png" />
+              <span class="inputContainer__span">D6</span>
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--minus"
+                id="d06_minus"
+              ></button>
+              <input
+                class="inputContainer__input inputContainer__input--dark"
+                type="number"
+                value="0"
+                id="d06_input"
+              />
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--plus"
+                id="d06_plus"
+              ></button>
+            </div>
+            <div class="inputContainer">
+              <img class="icon icon--dark icon--dice" src="/img/dice-d8.png" />
+              <span class="inputContainer__span">D8</span>
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--minus"
+                id="d08_minus"
+              ></button>
+              <input
+                class="inputContainer__input inputContainer__input--dark"
+                type="number"
+                value="0"
+                id="d08_input"
+              />
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--plus"
+                id="d08_plus"
+              ></button>
+            </div>
+            <div class="inputContainer">
+              <img class="icon icon--dark icon--dice" src="/img/dice-d10.png" />
+              <span class="inputContainer__span">D10</span>
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--minus"
+                id="d10_minus"
+              ></button>
+              <input
+                class="inputContainer__input inputContainer__input--dark"
+                type="number"
+                value="0"
+                id="d10_input"
+              />
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--plus"
+                id="d10_plus"
+              ></button>
+            </div>
+            <div class="inputContainer">
+              <img class="icon icon--dark icon--dice" src="/img/dice-d12.png" />
+              <span class="inputContainer__span">D12</span>
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--minus"
+                id="d12_minus"
+              ></button>
+              <input
+                class="inputContainer__input inputContainer__input--dark"
+                type="number"
+                value="0"
+                id="d12_input"
+              />
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--plus"
+                id="d12_plus"
+              ></button>
+            </div>
+            <div class="inputContainer">
+              <img class="icon icon--dark icon--dice" src="/img/dice-d20.png" />
+              <span class="inputContainer__span">D20</span>
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--minus"
+                id="d20_minus"
+              ></button>
+              <input
+                class="inputContainer__input inputContainer__input--dark"
+                type="number"
+                value="0"
+                id="d20_input"
+              />
+              <button
+                class="icon icon__btn icon__btn--dark icon__btn--plus"
+                id="d20_plus"
+              ></button>
+            </div>
+            <button
+              id="btn__roll"
+              class="form__btn form__btn--dark"
+              type="submit"
             >
-          </div>
+              ROLL!
+            </button>
+          </form>
         </div>
-        <div class="container__footer">
-          <div>
-            Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
-          </div>
-          <div>
-            <footer>&copy; Copyright 2022 Adrian Żegnałek</footer>
-          </div>
+        <div
+          class="container__results container__box container__box--dark scroll scroll--dark"
+        >
+          <span class="container__results--span"
+            >Your rolls will show up here</span
+          >
+        </div>
+      </div>
+      <div class="container__footer">
+        <div>
+          Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+        </div>
+        <div>
+          <footer>&copy; Copyright 2022 Adrian Żegnałek</footer>
         </div>
       </div>
     </div>
