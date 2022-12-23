@@ -1,12 +1,10 @@
-lower icon btns
+aria
 
-fix wrap
+background resolution
 
-add css toggle button
-maybe save to local storage last used theme
+add website icon
 
-fix dropping height
+decreasing value in first input field when pressing enter while cursor input is inside any of the fields
 
-fix dark color scheme
-
-or maybe instead of adding on top, replace?
+change settings form @media (height < 850)
+window.innerHeight

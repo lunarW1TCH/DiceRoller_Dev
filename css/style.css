@@ -327,3 +327,30 @@ html {
     height: auto;
   }
 }
+
+@media (max-height: 850px) {
+  /* .container__app {
+    height: auto;
+    min-height: 100rem;
+  } */
+
+  .container__wrapper--roller {
+    /* overflow: hidden; */
+    /* overflow: auto; */
+  }
+  .container__controlPanel {
+    overflow: auto;
+    /* display: flex; */
+    /* font-size: 555px; */
+  }
+
+  .controlPanel__form {
+    gap: 1rem;
+  }
+}
+
+@media (max-height: 720px) {
+  .controlPanel__form {
+    gap: 0.5rem;
+  }
+}
