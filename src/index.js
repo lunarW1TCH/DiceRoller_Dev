@@ -10,6 +10,7 @@ const results = document.querySelector('.container__results');
 const resultsMsg = document.querySelector('.container__results--span');
 const colorThemeBtn = document.querySelector('.icon__btn--moon');
 const darkStylesheet = document.getElementById('dark__stylesheet');
+const inputs = document.getElementsByClassName('inputContainer__input');
 const plusBtns = document.getElementsByClassName('icon__btn--plus');
 const minusBtns = document.getElementsByClassName('icon__btn--minus');
 
@@ -29,7 +30,9 @@ class App {
       this._siteColorThemeHandler.bind(this)
     );
 
-    // adds event listeners for each of the buttons
+    [...inputs].forEach(el =>
+      el.addEventListener('change', this._inputsValueHandler.bind(this))
+    );
     [...plusBtns].forEach(el =>
       el.addEventListener('click', e => this._plusOrMinusHandler(e, 'plus'))
     );
@@ -69,6 +72,11 @@ class App {
     }
   }
 
+  _inputsValueHandler(e) {
+    if (e.target.value < MIN_DICE_INPUT) e.target.value = MIN_DICE_INPUT;
+    if (e.target.value > MAX_DICE_INPUT) e.target.value = MAX_DICE_INPUT;
+  }
+
   _plusOrMinusHandler(e, btn) {
     const id = e.target.id;
     const dice = id.substring(0, 3);
@@ -76,8 +84,15 @@ class App {
     // gets the input which is the sibling of a clicked button
     const input = document.getElementById(`${dice}_input`);
 
-    if (btn === 'plus') input.value++;
-    if (btn === 'minus') input.value--;
+    if (btn === 'plus') {
+      if (input.value >= MAX_DICE_INPUT) return;
+      input.value++;
+    }
+
+    if (btn === 'minus') {
+      if (input.value <= MIN_DICE_INPUT) return;
+      input.value--;
+    }
   }
 
   _sleep(ms) {
