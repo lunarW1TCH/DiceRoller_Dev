@@ -17,7 +17,7 @@
   --color-quinary-dark: #2c2c2c;
 }
 
-.body {
+body {
   background-image: url(/img/dark.jpg);
   color: white;
 }

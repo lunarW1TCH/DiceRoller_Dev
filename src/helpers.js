@@ -18,7 +18,7 @@ export const paths = function () {
   return paths;
 };
 
-export const convertIndexIntoDiceSides = function (index) {
+export const indexToSides = function (index) {
   if (index === 0) return 4;
   if (index === 1) return 6;
   if (index === 2) return 8;

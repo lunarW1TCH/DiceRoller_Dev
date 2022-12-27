@@ -1,10 +1,5 @@
 import { MAX_DICE_INPUT, MIN_DICE_INPUT, SLEEP_TIME_MS } from './config';
-import {
-  convertIndexIntoDiceSides,
-  paths,
-  getRandomInt,
-  sleep,
-} from './helpers';
+import { indexToSides, paths, getRandomInt, sleep } from './helpers';
 
 // DOM elements
 const form = document.querySelector('.controlPanel__form');
@@ -102,10 +97,10 @@ class App {
   _getRolls(diceValues) {
     const rolls = [];
 
-    diceValues.forEach(function (element, index) {
-      if (element !== 0) {
-        const sides = convertIndexIntoDiceSides(index);
-        for (let i = 0; i < element; i++) {
+    diceValues.forEach(function (diceNum, index) {
+      if (diceNum !== 0) {
+        const sides = indexToSides(index);
+        for (let i = 0; i < diceNum; i++) {
           rolls.push([sides, getRandomInt(sides)]);
         }
       }
@@ -114,10 +109,8 @@ class App {
     return rolls;
   }
 
-  // toggles spin on dice icons
-  _renderSpin() {
+  _toggleSpin() {
     const icons = Array.from(form.getElementsByClassName('icon--dice'));
-    console.log(icons);
     icons.forEach(function (icon) {
       icon.classList.toggle('rotate');
     });
@@ -165,9 +158,9 @@ class App {
     const rolls = this._getRolls(diceValues);
 
     // after sleep time, spin animation stops and the results show up
-    this._renderSpin();
+    this._toggleSpin();
     await sleep(SLEEP_TIME_MS);
-    this._renderSpin();
+    this._toggleSpin();
 
     // hides 'your rolls will show up here' message
     if (this.#firstRoll) {
