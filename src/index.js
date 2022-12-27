@@ -1,7 +1,10 @@
 import { MAX_DICE_INPUT, MIN_DICE_INPUT, SLEEP_TIME_MS } from './config';
-import randomInteger from 'random-int';
-import { convertIndexIntoDiceSides, paths } from './helpers';
-import { convertIndexIntoDiceSides } from './helpers';
+import {
+  convertIndexIntoDiceSides,
+  paths,
+  getRandomInt,
+  sleep,
+} from './helpers';
 
 // DOM elements
 const form = document.querySelector('.controlPanel__form');
@@ -95,10 +98,6 @@ class App {
     }
   }
 
-  _sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
   // returns an array of rolls for every dice in the form
   _getRolls(diceValues) {
     const rolls = [];
@@ -107,7 +106,7 @@ class App {
       if (element !== 0) {
         const sides = convertIndexIntoDiceSides(index);
         for (let i = 0; i < element; i++) {
-          rolls.push([sides, randomInteger(1, sides)]);
+          rolls.push([sides, getRandomInt(sides)]);
         }
       }
     });
@@ -171,7 +170,7 @@ class App {
 
     // after sleep time, spin animation stops and the results show up
     this._renderSpin();
-    await this._sleep(SLEEP_TIME_MS);
+    await sleep(SLEEP_TIME_MS);
     this._renderSpin();
 
     // hides 'your rolls will show up here' message

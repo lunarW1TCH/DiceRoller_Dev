@@ -11,8 +11,5 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.8.0"
-  },
-  "dependencies": {
-    "random-int": "^3.0.0"
   }
 }

@@ -27,3 +27,11 @@ export const convertIndexIntoDiceSides = function (index) {
   if (index === 5) return 20;
   return 0;
 };
+
+export const getRandomInt = function (max) {
+  return Math.floor(Math.random() * max) + 1;
+};
+
+export const sleep = function (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
