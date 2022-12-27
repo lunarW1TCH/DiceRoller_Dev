@@ -128,18 +128,14 @@ class App {
     const sum = rolls.reduce((sum, el) => sum + el.at(1), initialValue);
 
     const div = document.createElement('div');
-    div.classList.add(
-      'container__box',
-      'container__box--dark',
-      'results__rollContainer'
-    );
+    div.classList.add('container__box', 'results__rollContainer');
 
     rolls.forEach(function (roll) {
       const divRoll = document.createElement('div');
       divRoll.classList.add('results__rollContainer--roll');
 
       const iconDice = document.createElement('img');
-      iconDice.classList.add('icon', 'icon--dark', 'icon--dice');
+      iconDice.classList.add('icon', 'icon--dice');
       const src = dicePaths[roll.at(0)];
       iconDice.setAttribute('src', src);
       divRoll.appendChild(iconDice);

@@ -17,52 +17,52 @@
   --color-quinary-dark: #2c2c2c;
 }
 
-.body--dark {
+.body {
   background-image: url(/img/dark.jpg);
   color: white;
 }
 
-.container__box--dark {
+.container__box {
   background: var(--color-secondary-dark-transparent);
   box-shadow: 0.5rem 0.5rem 1rem var(--color-quaternary-light);
 }
 
-.inputContainer__input--dark {
+.inputContainer__input {
   background: var(--color-quinary-dark);
   color: white;
 }
 
-.form__btn--dark {
+.form__btn {
   background-color: var(--color-primary--light);
   color: black;
 }
 
-.form__btn--dark:hover {
+.form__btn:hover {
   background-color: var(--color-primary--lighter);
 }
 
-.inputContainer__input--dark:focus {
+.inputContainer__input:focus {
   border: 2px solid var(--color-primary--light);
   outline: var(--color-primary--light);
 }
 
-.inputContainer__input--dark:hover {
+.inputContainer__input:hover {
   border: 2px solid var(--color-primary--lighter);
   outline: var(--color-primary--lighter);
 }
 
-.header--dark {
+.header {
   color: var(--color-primary--light);
   text-shadow: 2px 2px var(--color-tetriary-dark);
 }
 
-.icon__btn--dark {
+.icon__btn {
   filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1193%)
     hue-rotate(218deg) brightness(97%) contrast(103%)
     drop-shadow(2px 2px 2px var(--color-tetriary-dark));
 }
 
-.icon__btn--dark:hover {
+.icon__btn:hover {
   filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1193%)
     hue-rotate(218deg) brightness(97%) contrast(103%);
 }
@@ -75,22 +75,22 @@
   background-size: 32px;
 }
 
-.icon--dark {
+.icon {
   filter: brightness(0) saturate(100%) invert(64%) sepia(85%) saturate(1193%)
     hue-rotate(218deg) brightness(97%) contrast(103%);
 }
 
-.scroll--dark::-webkit-scrollbar-track {
+.scroll::-webkit-scrollbar-track {
   background-color: var(--color-quinary-dark);
   border-radius: 100px;
 }
 
-.scroll--dark::-webkit-scrollbar-thumb {
+.scroll::-webkit-scrollbar-thumb {
   background-color: var(--color-primary--light);
   border-radius: 100px;
 }
 
-.scroll--dark::-webkit-scrollbar-thumb:hover {
+.scroll::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary--lighter);
 }
 
