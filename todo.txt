@@ -1,7 +1,0 @@
-aria
-
-background resolution
-
-add website icon
-
-decreasing value in first input field when pressing enter while cursor input is inside any of the fields
